@@ -253,8 +253,9 @@ namespace TankGame
 
             Quaternion turnAngle = Quaternion.AngleAxis(turningPower, Rigidbody.transform.up);
             Vector3 fwd = turnAngle * Rigidbody.transform.forward;
-
             Vector3 movement = fwd * accelInput * finalAcceleration * GroundPercent;
+
+            transform.rotation *= turnAngle;
 
             // simple suspension allows us to thrust forward even when on bumpy terrain
             fwd.y = Mathf.Lerp(fwd.y, 0, finalStats.Suspension);

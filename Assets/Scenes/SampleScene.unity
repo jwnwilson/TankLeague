@@ -436,7 +436,7 @@ MonoBehaviour:
     Braking: 10
     CoastingDrag: 4
     Grip: 0.95
-    Steer: 5
+    Steer: 1
     AddedGravity: 1
     Suspension: 0.2
 --- !u!54 &1091011686
