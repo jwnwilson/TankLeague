@@ -2,9 +2,16 @@
 
 namespace TankGame
 {
+    public struct PlayerInput
+    {
+        public float steering;
+        public float throttle;
+        public Vector2 rightStick;
+    }
+
     public interface IInput
     {
-        Vector2 GenerateInput();
+        PlayerInput GenerateInput();
     }
 
     public abstract class BaseInput : MonoBehaviour, IInput
@@ -12,6 +19,6 @@ namespace TankGame
         /// <summary>
         /// Override this function to generate an XY input that can be used to steer and control the car.
         /// </summary>
-        public abstract Vector2 GenerateInput();
+        public abstract PlayerInput GenerateInput();
     }
 }

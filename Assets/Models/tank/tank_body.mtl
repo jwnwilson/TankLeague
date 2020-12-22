@@ -1,0 +1,24 @@
+# Blender MTL File: 'None'
+# Material Count: 2
+
+newmtl 01___14077_WWII_Tank_Germany_Panzer_III_tracks
+Ns 35.000008
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14077_WWII_Tank_Germany_Panzer_III_tracks_diff.jpg
+
+newmtl 02___14077_WWII_Tank_Germany_Panzer_III_hull
+Ns 35.000008
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14077_WWII_Tank_Germany_Panzer_III_hull_diff.jpg

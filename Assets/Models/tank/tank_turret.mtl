@@ -1,0 +1,13 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl 03___14077_WWII_Tank_Germany_Panzer_III_turret.001
+Ns 35.000008
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd 14077_WWII_Tank_Germany_Panzer_III_turret_diff.jpg

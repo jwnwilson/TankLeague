@@ -72,13 +72,14 @@ namespace TankGame
         public Rigidbody Rigidbody { get; private set; }
         public float GroundPercent { get; private set; }
 
-        public Vector2 Input { get; private set; }
+        public PlayerInput Input { get; private set; }
 
         public float AirPercent { get; private set; }
 
         // the input sources that can control the kart
         IInput[] m_Inputs;
         Tank.Stats finalStats;
+        Transform turret;
 
         [Header("Vehicle Physics")]
         [Tooltip("The transform that determines the position of the Kart's mass.")]
@@ -112,6 +113,7 @@ namespace TankGame
         void Start()
         {
             Rigidbody = GetComponent<Rigidbody>();
+            turret = transform.Find("Turret");
             m_Inputs = GetComponents<IInput>();
             Debug.Log("Starting");
         }
@@ -132,25 +134,24 @@ namespace TankGame
             AirPercent = 1 - GroundPercent;
 
             // gather inputs
-            float accel = Input.y;
-            float turn = Input.x;
-            MoveVehicle(accel, turn);
+            MoveVehicle();
         }
 
         void GatherInputs()
         {
             // reset input
-            Input = Vector2.zero;
+            Input = new PlayerInput {
+                steering = 0F,
+                throttle = 0F,
+                rightStick = Vector2.zero
+            };
 
             // gather nonzero input from our sources
             for (int i = 0; i < m_Inputs.Length; i++)
             {
                 var inputSource = m_Inputs[i];
-                Vector2 current = inputSource.GenerateInput();
-                if (current.sqrMagnitude > 0)
-                {
-                    Input = current;
-                }
+                PlayerInput current = inputSource.GenerateInput();
+                Input = current;
             }
         }
 
@@ -223,8 +224,11 @@ namespace TankGame
             Rigidbody.angularVelocity = suspendedAngular;
         }
 
-        void MoveVehicle(float accelInput, float turnInput)
+        void MoveVehicle()
         {
+            float accelInput = Input.throttle;
+            float turnInput = Input.steering;
+            float horizontalLook = Input.rightStick.x;
             // manual acceleration curve coefficient scalar
             float accelerationCurveCoeff = 5;
             Vector3 localVel = transform.InverseTransformVector(Rigidbody.velocity);
@@ -255,7 +259,12 @@ namespace TankGame
             Vector3 fwd = turnAngle * Rigidbody.transform.forward;
             Vector3 movement = fwd * accelInput * finalAcceleration * GroundPercent;
 
+            Quaternion lookAngle = Quaternion.AngleAxis(horizontalLook, Rigidbody.transform.up);
+
+            // Rotate the tank body
             transform.rotation *= turnAngle;
+            // Rotate the turret
+            turret.rotation *= lookAngle;
 
             // simple suspension allows us to thrust forward even when on bumpy terrain
             fwd.y = Mathf.Lerp(fwd.y, 0, finalStats.Suspension);

@@ -7,12 +7,12 @@ namespace TankGame
         public string Horizontal = "Horizontal";
         public string Vertical = "Vertical";
 
-        public override Vector2 GenerateInput()
+        public override PlayerInput GenerateInput()
         {
-            return new Vector2
+            return new PlayerInput
             {
-                x = Input.GetAxis(Horizontal),
-                y = Input.GetAxis(Vertical)
+                steering = Input.GetAxis(Horizontal),
+                throttle = Input.GetAxis(Vertical)
             };
         }
     }
