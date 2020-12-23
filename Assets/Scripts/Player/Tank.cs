@@ -343,6 +343,10 @@ namespace TankGame
                 Rigidbody.velocity = latFrictionDampedVelocity;
             }
         }
-    }
 
+        public void Die()
+        {
+            Destroy(gameObject);
+        }
+    }
 }

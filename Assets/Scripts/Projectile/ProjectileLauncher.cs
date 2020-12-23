@@ -8,6 +8,9 @@ namespace TankGame
     {
         // Start is called before the first frame update
         GameObject shell;
+        // time between shots
+        float rateOfFire = 1;
+        float reloading = 0;
         // the input sources that can control the kart
         IInput[] m_Inputs;
         public PlayerInput Input { get; private set; }
@@ -41,12 +44,17 @@ namespace TankGame
         void FixedUpdate()
         {
             GatherInputs();
-            if (Input.shooting)
+            if(reloading > 0)
+            {
+                reloading -= Time.deltaTime;
+            }
+
+            if (Input.shooting && reloading <= 0)
             {
                 GameObject projectile = Instantiate(shell) as GameObject;
-                projectile.transform.position = transform.position + new Vector3(0, 2, 0) + transform.forward * 2;
-                Rigidbody rb = projectile.GetComponent<Rigidbody>();
-                rb.velocity = transform.forward * 40;
+                Transform turret = transform.Find("Turret");
+                projectile.GetComponent<Shell>().Setup(turret);
+                reloading = rateOfFire;
             }
         }
     }
