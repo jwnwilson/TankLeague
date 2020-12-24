@@ -6,6 +6,8 @@ namespace TankGame
 {
     public class Shell : MonoBehaviour
     {
+        public GameObject explosion;
+
         public void Setup(Transform trans)
         {
             transform.position = trans.position + new Vector3(0, 2, 0) + trans.forward * 2;
@@ -34,8 +36,11 @@ namespace TankGame
             if (tank != null)
             {
                 tank.Die();
-                Destroy(gameObject);
             }
+
+            GameObject expl = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+            Destroy(expl, 2);
         }
     }
 }

@@ -295,7 +295,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: LookHorizontal
-    descriptiveName: Right stick horizontal
+    descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -311,7 +311,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: LookVertical
-    descriptiveName: Right stick hverticalorizontal
+    descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 

@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 7393423766901270239}
   - component: {fileID: 7393423766901270236}
   - component: {fileID: 3502257127709664088}
+  - component: {fileID: 5392014093484847806}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -202,6 +203,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9491c6278fa2a4ab517d75959c4eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5392014093484847806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393423766901270237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.68, y: 1.3, z: 3.1}
+  m_Center: {x: 0, y: 1.42, z: 0.1}
 --- !u!1 &7393423767048402062
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,19 +261,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &7393423766558759511
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663963762372077315}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.83, y: 1.3, z: 1.7}
-  m_Center: {x: 0.05, y: 0.65, z: 0}
 --- !u!1001 &7393423766212395450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,12 +405,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635d204fdc507a8479853f71c6fb0c98, type: 3}
---- !u!1 &7663963762372077315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 635d204fdc507a8479853f71c6fb0c98,
-    type: 3}
-  m_PrefabInstance: {fileID: 7393423766558759506}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6994106452542963129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 635d204fdc507a8479853f71c6fb0c98,
